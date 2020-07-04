@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\alley\OneDrive\Desktop\IPSnetwork\IPSnetwork\venv"
+VIRTUAL_ENV="C:\Users\alley\PycharmProjects\IPS\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

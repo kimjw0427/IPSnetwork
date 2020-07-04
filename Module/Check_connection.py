@@ -1,6 +1,5 @@
 from scapy.all import *
 
-
 conf.iface = 'Microsoft Hosted Network Virtual Adapter'
 
 dhcp_result = None
