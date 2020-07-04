@@ -1,6 +1,4 @@
 from scapy.all import *
-import time
-import threading
 
 
 conf.iface = 'Microsoft Hosted Network Virtual Adapter'
