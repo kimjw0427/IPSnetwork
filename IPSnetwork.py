@@ -24,9 +24,9 @@ def check_interface():
     else:
         return '[네트워크] 네트워크 호스트를 지원하지 않는 무선 인터페이스입니다. 다른 무선랜카드를 사용해주세요.'
 
-def check_winpcap():
+def check_npcap():
     try:
-        send(IP(dst="127.0.0.1") / ICMP() / 'Whereiswinpcap', verbose=False)
+        send(IP(dst="127.0.0.1") / ICMP() / 'Whereisnpcap', verbose=False)
         return True
     except:
         return '[Scapy] npcap을 찾을 수 없습니다. https://nmap.org/npcap/ 에서 npcap을 설치해주세요.'
@@ -36,8 +36,8 @@ def check_error():
         return check_su()
     elif(check_interface() != True):
         return check_interface()
-    elif(check_winpcap() != True):
-        return check_winpcap()
+    elif(check_npcap() != True):
+        return check_npcap()
     else:
         return True
 
