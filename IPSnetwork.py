@@ -9,7 +9,42 @@ from Module import Check_connection
 import os
 import ctypes
 
+def check_su():
+    if ctypes.windll.shell32.IsUserAnAdmin():
+        return True
+    else:
+        return '[오류] 이 명령은 관리자 권한을 사용하여 실행해야 합니다.'
+
+def check_interface():
+    interface = os.popen('netsh wlan show driver').read().split()
+    if(interface[0] == '시스템에'):
+        return '[네트워크] 시스템에 무선 인터페이스가 없습니다. 무선랜카드를 설치해주세요.'
+    elif(interface[interface.index('호스트된') + 4] == '예'):
+        return True
+    else:
+        return '[네트워크] 네트워크 호스트를 지원하지 않는 무선 인터페이스입니다. 다른 무선랜카드를 사용해주세요.'
+
+def check_winpcap():
+    try:
+        send(IP(dst="127.0.0.1") / ICMP() / 'Whereiswinpcap', verbose=False)
+        return True
+    except:
+        return '[Scapy] npcap을 찾을 수 없습니다. https://nmap.org/npcap/ 에서 npcap을 설치해주세요.'
+
+def check_error():
+    if(check_su() != True):
+        return check_su()
+    elif(check_interface() != True):
+        return check_interface()
+    elif(check_winpcap() != True):
+        return check_winpcap()
+    else:
+        return True
+
+error = check_error()
+
 interface = 'Microsoft Hosted Network Virtual Adapter'
+
 def find_ethernet_name():
     ipconfig = os.popen('ipconfig').read().split()
     try:
@@ -72,21 +107,6 @@ def ics():
     else:
         return '[ICS] 인터넷 연결 공유가 이미 활성화되어 있습니다.'
 
-def check_su():
-    if ctypes.windll.shell32.IsUserAnAdmin():
-        return True
-    else:
-        return '[오류] 이 명령은 관리자 권한을 사용하여 실행해야 합니다.'
-
-def check_interface():
-    interface = os.popen('netsh wlan show driver').read().split()
-    if(interface[0] == '시스템에'):
-        return '[네트워크] 시스템에 무선 인터페이스가 없습니다. 무선랜카드를 설치해주세요.'
-    elif(interface[interface.index('호스트된') + 4] == '예'):
-        return True
-    else:
-        return '[네트워크] 네트워크 호스트를 지원하지 않는 무선 인터페이스입니다. 다른 무선랜카드를 사용해주세요.'
-
 
 def find_ssid():
     ssid = os.popen('netsh wlan show hostednetwork').read()
@@ -146,16 +166,6 @@ def network_set(ssid, key):
         return f"[설정] 네트워크 이름: {SSID} 네트워크 비밀번호: {KEY[0:4]}**** \n[설정] 재시작 시 적용됩니다."
     else:
         return f"[설정] 네트워크 이름: {SSID} 네트워크 비밀번호: {KEY[0:4]}****"
-
-def check_error():
-    if(check_su() != True):
-        return check_su()
-    elif(check_interface() != True):
-        return check_interface()
-    else:
-        return True
-
-error = check_error()
 
 form_class = uic.loadUiType("GUI\MyWindow.ui")[0]
 

@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a5de887-4cb7-4710-9f55-42e9ac8513b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Module/Deauth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPSnetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/IPSnetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module/Deauth.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module/Deauth.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,28 +59,7 @@
       <recent name="C:\Users\alley\PycharmProjects\IPS\ps1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Start">
-    <configuration name="Check_connect" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="IPS" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\alley\PycharmProjects\IPS\PreventionModule\Check_connect.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.Deauth">
     <configuration name="Check_connection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="IPS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,7 +81,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="P_ARP" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Deauth" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="IPS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -109,11 +89,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PreventionModule" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Module" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PreventionModule/P_ARP.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Module/Deauth.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="IPSnetwork" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IPS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IPSnetwork.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Start" />
+        <item itemvalue="Python.Deauth" />
         <item itemvalue="Python.Check_connection" />
+        <item itemvalue="Python.IPSnetwork" />
+        <item itemvalue="Python.Start" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.Check_connect" />
-        <item itemvalue="Python.P_ARP" />
       </list>
     </recent_temporary>
   </component>
@@ -212,22 +213,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1200" y="341" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593886373152" />
-    <state width="731" height="142" key="GridCell.Tab.0.bottom" timestamp="1593933739623">
+    <state width="1899" height="453" key="GridCell.Tab.0.bottom" timestamp="1594221063156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="731" height="142" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593933739623" />
-    <state width="731" height="142" key="GridCell.Tab.0.center" timestamp="1593933739623">
+    <state width="1899" height="453" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594221063156" />
+    <state width="1899" height="453" key="GridCell.Tab.0.center" timestamp="1594221063156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="731" height="142" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593933739623" />
-    <state width="731" height="142" key="GridCell.Tab.0.left" timestamp="1593933739622">
+    <state width="1899" height="453" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594221063156" />
+    <state width="1899" height="453" key="GridCell.Tab.0.left" timestamp="1594221063156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="731" height="142" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593933739622" />
-    <state width="731" height="142" key="GridCell.Tab.0.right" timestamp="1593933739623">
+    <state width="1899" height="453" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594221063156" />
+    <state width="1899" height="453" key="GridCell.Tab.0.right" timestamp="1594221063156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="731" height="142" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593933739623" />
+    <state width="1899" height="453" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594221063156" />
     <state width="1899" height="346" key="GridCell.Tab.1.bottom" timestamp="1593606967759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -256,9 +257,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="0" width="1080" height="765" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1593345576599" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1593523466317">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594220454550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593523466317" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594220454550" />
   </component>
 </project>
