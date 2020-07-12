@@ -16,13 +16,16 @@ def check_su():
         return '[오류] 이 명령은 관리자 권한을 사용하여 실행해야 합니다.'
 
 def check_interface():
-    interface = os.popen('netsh wlan show driver').read().split()
-    if(interface[0] == '시스템에'):
+    driver = os.popen('netsh wlan show driver').read().split()
+    if(driver[0] == '시스템에'):
         return '[네트워크] 시스템에 무선 인터페이스가 없습니다. 무선랜카드를 설치해주세요.'
-    elif(interface[interface.index('호스트된') + 4] == '예'):
-        return True
     else:
-        return '[네트워크] 네트워크 호스트를 지원하지 않는 무선 인터페이스입니다. 다른 무선랜카드를 사용해주세요.'
+        try:
+            while(driver[driver.index('호스트된') + 4] != '예'):
+                driver.remove('호스트된')
+            return True
+        except:
+            return '[네트워크] 네트워크 호스트를 지원하지 않는 무선 인터페이스입니다. 다른 무선랜카드를 사용해주세요.'
 
 def check_npcap():
     try:
