@@ -44,9 +44,14 @@ def check_error():
     else:
         return True
 
-error = check_error()
+def find_interface_name():
+    interfaces = str(ifaces)
+    interfaces = interfaces.split('     ')
+    for interface in interfaces:
+        if not(interface.find('Microsoft Hosted Network Virtual Adapter') == -1):
+            return interface
 
-interface = 'Microsoft Hosted Network Virtual Adapter'
+error = check_error()
 
 def find_ethernet_name():
     ipconfig = os.popen('ipconfig').read().split()
@@ -73,7 +78,7 @@ def find_ethernet_name():
 
 def find_hostednetwork_name():
     ipconfig = os.popen('ipconfig /all').read()
-    return ipconfig[ipconfig.find(interface) - 70:ipconfig.find(interface) - 59].replace(':','')
+    return ipconfig[ipconfig.find(find_interface_name()) - 70:ipconfig.find(find_interface_name()) - 59].replace(':','')
 
 def ics():
     ps1_1 = 'regsvr32 hnetcfg.dll /s;'
@@ -291,7 +296,7 @@ class MyWindow(QMainWindow, form_class):
     def netsh_start(self):
         def indicate_connection():
             while(check_status() == '시작됨'):
-                a = Check_connection.check_connection()
+                a = Check_connection.check_connection(find_interface_name())
                 self.Console.append(f'[DHCP] [{a.split()[0]}]이(가) 연결했습니다. [{a.split()[1]}] 아이피를 할당했습니다.')
         if(error == True):
             self.Console.append(network_start())

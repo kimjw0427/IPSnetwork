@@ -22,7 +22,8 @@
     <list default="true" id="6a5de887-4cb7-4710-9f55-42e9ac8513b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IPSnetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/IPSnetwork.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module/Deauth.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module/Deauth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module/Check_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module/Check_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module/Deauth.py" beforeDir="false" afterPath="$PROJECT_DIR$/Module/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <recent name="C:\Users\alley\PycharmProjects\IPS\ps1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Deauth">
+  <component name="RunManager" selected="Python.IPSnetwork">
     <configuration name="Check_connection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="IPS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,7 +145,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="IPS" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -152,11 +153,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Module" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Module/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Deauth" />
         <item itemvalue="Python.IPSnetwork" />
+        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.Check_connection" />
+        <item itemvalue="Python.Deauth" />
         <item itemvalue="Python.Start" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -213,38 +214,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1200" y="341" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593886373152" />
-    <state width="1899" height="453" key="GridCell.Tab.0.bottom" timestamp="1594298415968">
+    <state width="1899" height="327" key="GridCell.Tab.0.bottom" timestamp="1594648471385">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="453" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594298415968" />
-    <state width="1899" height="453" key="GridCell.Tab.0.center" timestamp="1594298415967">
+    <state width="1899" height="327" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594648471385" />
+    <state width="1899" height="327" key="GridCell.Tab.0.center" timestamp="1594648471384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="453" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594298415967" />
-    <state width="1899" height="453" key="GridCell.Tab.0.left" timestamp="1594298415967">
+    <state width="1899" height="327" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594648471384" />
+    <state width="1899" height="327" key="GridCell.Tab.0.left" timestamp="1594648471384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="453" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594298415967" />
-    <state width="1899" height="453" key="GridCell.Tab.0.right" timestamp="1594298415967">
+    <state width="1899" height="327" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594648471384" />
+    <state width="1899" height="327" key="GridCell.Tab.0.right" timestamp="1594648471384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="453" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594298415967" />
-    <state width="1899" height="346" key="GridCell.Tab.1.bottom" timestamp="1593606967759">
+    <state width="1899" height="327" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594648471384" />
+    <state width="949" height="346" key="GridCell.Tab.1.bottom" timestamp="1594553648424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593606967759" />
-    <state width="1899" height="346" key="GridCell.Tab.1.center" timestamp="1593606967759">
+    <state width="949" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594553648424" />
+    <state width="949" height="346" key="GridCell.Tab.1.center" timestamp="1594553648424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="346" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593606967759" />
-    <state width="1899" height="346" key="GridCell.Tab.1.left" timestamp="1593606967759">
+    <state width="949" height="346" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594553648424" />
+    <state width="949" height="346" key="GridCell.Tab.1.left" timestamp="1594553648424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="346" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593606967759" />
-    <state width="1899" height="346" key="GridCell.Tab.1.right" timestamp="1593606967759">
+    <state width="949" height="346" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594553648424" />
+    <state width="949" height="346" key="GridCell.Tab.1.right" timestamp="1594553648424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="346" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593606967759" />
+    <state width="949" height="346" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594553648424" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1593250553896">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -257,9 +258,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="0" width="1080" height="765" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1593345576599" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594220454550">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594557571265">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594220454550" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594557571265" />
   </component>
 </project>
