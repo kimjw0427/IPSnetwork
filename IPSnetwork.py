@@ -3,38 +3,38 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import*
 from PyQt5.QtCore import*
-from PyQt5.QtGui import*
-from scapy.all import *
-from Module import Check_connection
-import os
-import ctypes
+from PyQt5.QtGui import*    # PYQT = GUI 라이브러리
+from scapy.all import *    # SCAPY = 네트워크 관련 라이브러리 
+from Module import Check_connection    # MODULE 폴더에 있는 연결 감지 모듈 import
+import os    # OS 관련 라이브러리
+import ctypes    # 외부 함수 인터페이스 라이브러리라는데 정확히 뭔지는 모르고 관리자 권한으로 실행됬는지 확인할 때만 사용
 
-def check_su():
+def check_su():    # 프로그램이 관리자 권한으로 실행됬는지 확인 하는 함수
     if ctypes.windll.shell32.IsUserAnAdmin():
-        return True
+        return True    # 관리자 권한이면 True 리턴
     else:
-        return '[오류] 이 명령은 관리자 권한을 사용하여 실행해야 합니다.'
+        return '[오류] 이 명령은 관리자 권한을 사용하여 실행해야 합니다.'     # 아니면 오류 메세지 리턴
 
-def check_interface():
-    driver = os.popen('netsh wlan show driver').read().split()
-    if(driver[0] == '시스템에'):
+def check_interface():    # 네트워크 인터페이스를 확인 하는 함수
+    driver = os.popen('netsh wlan show driver').read().split()    # cmd에 netsh wlan show driver 명령어를 입력했을때 출력되는 메세지 저장
+    if(driver[0] == '시스템에'):    # 무선랜 카드가 없을때 출력되는 메세지면 오류 메세지 리턴
         return '[네트워크] 시스템에 무선 인터페이스가 없습니다. 무선랜카드를 설치해주세요.'
     else:
         try:
             while(driver[driver.index('호스트된') + 4] != '예'):
                 driver.remove('호스트된')
-            return True
+            return True    # 반복문으로 인식되어있는 모든 무선랜 카드를 확인하고 네트워크 호스트를 지원하는 무선랜카드가 있으면 True 리턴
         except:
-            return '[네트워크] 네트워크 호스트를 지원하지 않는 무선 인터페이스입니다. 다른 무선랜카드를 사용해주세요.'
+            return '[네트워크] 네트워크 호스트를 지원하지 않는 무선 인터페이스입니다. 다른 무선랜카드를 사용해주세요.'    # 아니면 오류 메세지 리턴
 
-def check_npcap():
+def check_npcap():    # npcap이 설치되어있는지 확인하는 함수(npcap이 없으면 scapy가 작동하지 않음)
     try:
-        send(IP(dst="127.0.0.1") / ICMP() / 'Whereisnpcap', verbose=False)
-        return True
+        send(IP(dst="127.0.0.1") / ICMP() / 'Whereisnpcap', verbose=False)    # scapy를 이용해 루프백 아이피로 icmp 패킷을 보냄
+        return True    # 정상적으로 작동하면 True 리턴
     except:
-        return '[Scapy] npcap을 찾을 수 없습니다. https://nmap.org/npcap/ 에서 npcap을 설치해주세요.'
+        return '[Scapy] npcap을 찾을 수 없습니다. https://nmap.org/npcap/ 에서 npcap을 설치해주세요.'    # 오류가 나면 오류 메세지 리턴
 
-def check_error():
+def check_error():    # 에러 확인 함수
     if(check_su() != True):
         return check_su()
     elif(check_interface() != True):
@@ -42,18 +42,21 @@ def check_error():
     elif(check_npcap() != True):
         return check_npcap()
     else:
-        return True
+        return True    # 관리자 권한 확인 함수, 무선랜 카드 확인 함수, npcap 확인 함수에서 이상이 없으면 True, 오류 메시지가 있다면 그 오류 메세지를 리턴
 
-def find_interface_name():
+def find_interface_name():    # 호스트 네트워크의 인터페이스 이름을 찾는 함수
     interfaces = str(ifaces)
-    interfaces = interfaces.split('     ')
+    interfaces = interfaces.split('  ')
     for interface in interfaces:
         if not(interface.find('Microsoft Hosted Network Virtual Adapter') == -1):
-            return interface
+            if(interface.find('#') == -1):
+                return 'Microsoft Hosted Network Virtual Adapter'
+            else:
+                return f"Microsoft Hosted Network Virtual Adapter {interface[interface.find('#'):interface.find('#')+2]}"
 
 error = check_error()
 
-def find_ethernet_name():
+def find_ethernet_name():    # 인터넷 연결을 공유할 네트워크 인터페이스 이름을 찾는 함수
     ipconfig = os.popen('ipconfig').read().split()
     try:
         while(ipconfig[ipconfig.index('이더넷') + 18] != 'IPv4'):
@@ -76,11 +79,11 @@ def find_ethernet_name():
                 except:
                     return [False, '[오류] 인터넷 공유를 사용할 수 없습니다. 네트워크 이름을 "이더넷 n" 또는 "Wi-Fi n"으로 변경해주세요.']
 
-def find_hostednetwork_name():
+def find_hostednetwork_name():    # 호스트 네트워크의 이름을 찾는 함수
     ipconfig = os.popen('ipconfig /all').read()
     return ipconfig[ipconfig.find(find_interface_name()) - 70:ipconfig.find(find_interface_name()) - 59].replace(':','')
 
-def ics():
+def ics():    # 인터넷 연결 공유를 활성화해서 실행된 네트워크에 접속했을때 정상적으로 인터넷을 할 수 있게 해주는 함수
     ps1_1 = 'regsvr32 hnetcfg.dll /s;'
     ps1_2 = '$m = New-Object -ComObject HNetCfg.HNetShare;'
     ps1_3_1 = '$c = $m.EnumEveryConnection |? { $m.NetConnectionProps.Invoke($_).Name -eq "'
@@ -116,20 +119,20 @@ def ics():
         return '[ICS] 인터넷 연결 공유가 이미 활성화되어 있습니다.'
 
 
-def find_ssid():
+def find_ssid():    # 호스트 네트워크의 무선랜 이름을 찾는 함수
     ssid = os.popen('netsh wlan show hostednetwork').read()
     ssid = ssid.split()
     ssid = ssid[ssid.index('SSID') + 3].split('"')
     return ssid[1]
 
 
-def find_key():
+def find_key():    # 호스트 네트워크의 무선랜 비밀번호 찾는 함수
     key = os.popen('netsh wlan show hostednetwork setting=security').read()
     key = key.split()
     return key[key.index('사용자') + 4]
 
 
-def check_client():
+def check_client():    # 호스트 네트워크의 접속자 수를 확인하는 함수
     c = os.popen('netsh wlan show hostednetwork').read()
     c = c.split()
     if(c[c.index('상태') + 5] == '안'):
@@ -138,7 +141,7 @@ def check_client():
         return(c[c.index('상태') + 19])
 
 
-def check_channel():
+def check_channel():    # 호스트 네트워크의 채널을 확인하는 함수
     c = os.popen('netsh wlan show hostednetwork').read()
     c = c.split()
     if(c[c.index('상태') + 5] == '안'):
@@ -146,7 +149,7 @@ def check_channel():
     else:
         return(c[c.index('상태') + 15])
 
-def check_status():
+def check_status():    # 호스트 네트워크가 켜져있는지 확인하는 함수
     c = os.popen('netsh wlan show hostednetwork').read()
     c = c.split()
     if(c[c.index('상태') + 5] == '안'):
@@ -154,21 +157,21 @@ def check_status():
     else:
         return(c[c.index('상태') + 4])
     
-def network_start():
+def network_start():    # 호스트 네트워크를 시작하는 함수 
     if(check_status() == '시작됨'):
         return '[네트워크] 이미 시작되어있습니다.'
     else:
         os.system('netsh wlan start hostednetwork')
         return '[네트워크] 네트워크가 시작되었습니다.'
 
-def network_stop():
+def network_stop():    # 호스트 네트워크를 종료하는 함수
     if(check_status() == '시작됨'):
         os.system('netsh wlan stop hostednetwork')
         return '[네트워크] 네트워크가 종료되었습니다.'
     else:
         return '[네트워크] 네트워크가 시작되지 않았습니다'
 
-def network_set(ssid, key):
+def network_set(ssid, key):    # 이름, 비밀번호 값을 받아서 설정하는 함수
     os.system(f'netsh wlan set hostednetwork mode=allow ssid={ssid} key={key}')
     if (check_status() == '시작됨'):
         return f"[설정] 네트워크 이름: {SSID} 네트워크 비밀번호: {KEY[0:4]}**** \n[설정] 재시작 시 적용됩니다."
